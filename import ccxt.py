@@ -1,6 +1,6 @@
 import time
 import ccxt
-import telebot  # Import the telebot library
+import telebot
 
 # Replace with your actual bot token and chat ID
 bot_token = "7011162475:AAHuSXG-0g0xCLAJQdxAtgu-L5uyiVcyHPo"
@@ -24,13 +24,12 @@ while 1:
     last_closing_prince=closing_price
     closing_price = pair_price_data['close']
     print ("PYTH: %1.4f  Iterations: %4d " % (closing_price, iterations))
-    # time.sleep(5)
     iterations=iterations +1
 
 
     if closing_price>0.99 and closing_price>last_closing_prince:
 
-        # Send message with Bitcoin price
+        # Send message with PYTH price
         message = f"Current PYTH price: ${closing_price:.4f} USD"
         bot.send_message(chat_id, message)
 
